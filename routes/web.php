@@ -7,5 +7,10 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('database', [DatabaseController::class, 'index']
-);
+
+Route::get('/hello-world', function () {
+    return 'Hello, World!';
+});
+
+
+Route::get('database', [DatabaseController::class, 'index']);

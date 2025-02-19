@@ -7,7 +7,7 @@ databases.forEach((database) => {
             database.classList.remove("active");
             database.querySelector(".table-container").classList.remove("active");
             return;
-        }3
+        }
 
         database.classList.add("active");
 
@@ -16,3 +16,20 @@ databases.forEach((database) => {
         tablesInDatabase.classList.add("active");
     });
 });
+
+
+const state = { page_id: 1, user_id: 5 };
+const url = "hello-world";
+
+history.pushState(state, "", url);
+
+
+const xhr = new XMLHttpRequest();
+xhr.open("GET", url, true);
+xhr.send();
+
+xhr.onreadystatechange = function () {
+    if (xhr.readyState === XMLHttpRequest.DONE) {
+        console.log(xhr.responseText);
+    }
+};
