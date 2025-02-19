@@ -12,12 +12,11 @@ class DatabaseController extends Controller
     public function index()
     {
 
-        // Get all the databases
         $databases = DB::select('SHOW DATABASES');
 
         // Get all the tables in the database
         foreach ($databases as $database) {
-            $tables = DB::select('SHOW TABLES ');
+            $tables = DB::select('SHOW TABLES FROM `' . $database->Database . '`');
             $database->tables = $tables;
         }
 

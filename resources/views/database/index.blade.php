@@ -1,12 +1,16 @@
 {{-- Loop over every database --}}
+
+@vite('resources/css/sidebar.css')
+@vite('resources/js/sidebar.js')
+
+
 @foreach ($databases as $database)
     <h1>{{ $database->Database }}</h1>
     @foreach ($database->tables as $table)
-                    @php
-                        $tableKey = "Tables_in_database.{$database->Database}";
-                    @endphp
-        <h2>{{ $table->$tableKey }}</h2>
-
+        @foreach($table as $key => $tableName)
+            <p>{{ $tableName }}</p>
+            <hr>
+        @endforeach
     @endforeach
 
     <hr>
