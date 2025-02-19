@@ -1,22 +1,19 @@
 {{-- Loop over every database --}}
 
-@vite('resources/css/sidebar.css')
-@vite('resources/js/sidebar.js')
+@vite("resources/css/sidebar.css")
 
-
-@foreach ($databases as $database)
-    <h1>{{ $database->Database }}</h1>
-    @foreach ($database->tables as $table)
-        @foreach($table as $key => $tableName)
-            <p>{{ $tableName }}</p>
-            <hr>
-        @endforeach
+<div class="sidebar">
+    @foreach ($databases as $database)
+        <div class="database-container" data-database="{{ $database->Database }}">
+            <p class="database">{{ $database->Database }}</p>
+            <div class="table-container">
+                @foreach ($database->tables as $table)
+                    @foreach($table as $key => $tableName)
+                        <p class="table-name">{{ $tableName }}</p>
+                    @endforeach
+                @endforeach
+            </div>
+        </div>
     @endforeach
-
-    <hr>
-    <hr>
-    <hr>
-    <hr>
-@endforeach
-
-
+</div>
+@vite("resources/js/sidebar.js")

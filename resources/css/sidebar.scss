@@ -1,3 +1,45 @@
-body {
-    background-color: red;
+@import url("root.css");
+
+.sidebar {
+    background-color: var(--background2);
+    width: 15%;
+    height: 95%;
+
+    position: fixed;
+    top: 1%;
+    left: 0;
+
+    overflow-y: scroll;
+    scrollbar-width: none;
+
+    border-radius: 0 16px 16px 0;
+
+    padding: 1rem;
+
+    .database-container {
+        border-radius: 8px;
+        margin-bottom: 0.5rem;
+
+        cursor: pointer;
+
+        &.active, &:hover {
+            background-color: var(--primary);
+            color: var(--background);
+            padding: 0.5rem;
+        }
+
+        .database {
+            cursor: pointer;
+        }
+
+        .table-container{
+            display: none;
+            margin-left: 1.5rem;
+            overflow-x: hidden;
+
+            &.active {
+                display: block;
+            }
+        }
+    }
 }
